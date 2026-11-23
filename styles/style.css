@@ -882,7 +882,8 @@ visual
     .main_stay .cont .fr li:nth-child(3) div:before{width:48px;height:24px; top:-10px; }
 }
 @media only screen and (max-width:480px) {
-    .main_stay .tits h3{font-size:40px;}
+    /* 모바일은 30px 고정(요청). 영문명이 길면 2줄 — 이 폭에서는 자동 줄임(fitStayNameEn)을 하지 않는다 */
+    .main_stay .tits h3{font-size:30px;}
     .main_stay .cont .fr{margin-top:0;}
     .main_stay .cont .fr ul{width:360px; height:250px; margin:0 auto;}
     .main_stay .cont .fr li div{width:240px; height:150px; padding:15px 10px 10px 10px}
