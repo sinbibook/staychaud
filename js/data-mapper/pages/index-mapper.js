@@ -30,14 +30,18 @@
   }
   // 최하단 숙소 영문명(main_stay h3)을 1줄로 맞춘다.
   // 영문명은 숙소마다 16~40자라 글자 크기 하나로는 1줄을 보장할 수 없다(375px 에서 16자 53px · 40자 22px 까지).
+  // 단, 480px 이하는 30px 고정(2줄 허용)이라 맞추지 않는다.
   // CSS 브레이크포인트 크기를 상한으로 두고, 그 크기로 넘칠 때만 1줄에 들어가는 크기로 줄인다.
   // STAY_NAME_MIN_PX 보다 작아져야 하면 줄이지 않고 그 크기에서 원래처럼 2줄로 둔다(잘리지 않게).
   var STAY_NAME_MIN_PX = 20;
+  // 480px 이하는 30px 고정이고 길면 2줄로 둔다(운영 요청 2026-11-19) — style.css 의 같은 브레이크포인트와 맞춘다
+  var STAY_NAME_FIXED_MQ = '(max-width: 480px)';
   function fitStayNameEn() {
+    var fixed = window.matchMedia && window.matchMedia(STAY_NAME_FIXED_MQ).matches;
     document.querySelectorAll('[data-index-stay-name-en]').forEach(function (el) {
       el.style.fontSize = '';
       el.style.whiteSpace = '';
-      if (!el.textContent.trim() || !el.clientWidth) return;
+      if (fixed || !el.textContent.trim() || !el.clientWidth) return;
 
       var cs = getComputedStyle(el);
       var avail = el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);

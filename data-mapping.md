@@ -161,7 +161,7 @@ roomStructures[0] + "/ " + 값≥1인 항목들 나열
 | `data-index-room-slides`        | `.main_room .room-slide .swiper-wrapper`         | `customFields.roomtypes[]` (rebuild, 링크 `room.html?room_id={id}`)       |
 | `data-index-memory-description` | main_memory `.txt p`                             | `closing.description` (\n→`<br>`)                                         |
 | `data-index-memory-image`       | main_memory `.img` (배경)                        | `closing.images[isSelected][0].url`                                       |
-| `data-index-stay-name-en`       | main_stay `.tits h3`                             | `property.nameEn` (숙소 영문명). 1줄 자동 맞춤 — CSS 크기가 상한, 넘치면 `fitStayNameEn` 이 줄임(최소 20px, 그보다 길면 2줄) |
+| `data-index-stay-name-en`       | main_stay `.tits h3`                             | `property.nameEn` (숙소 영문명). 481px 이상은 1줄 자동 맞춤 — CSS 크기가 상한, 넘치면 `fitStayNameEn` 이 줄임(최소 20px, 그보다 길면 2줄) / 480px 이하는 30px 고정 · 길면 2줄 |
 | `data-index-stay-tagline`       | main_stay `.tits p`                              | `gallery.title`                                                           |
 | `data-index-stay-name`          | main_stay `.fl h4`                               | `property.name`                                                           |
 | `data-index-stay-description`   | main_stay `.fl p`                                | `gallery.description` (\n→`<br>`)                                         |
